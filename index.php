@@ -30,6 +30,7 @@
     $user = "nirranthea";
     $pass = "Purnama101";
     $db = "nirrantheawebappsubmission1";
+	$count = 0;
 
     try {
         $conn = new PDO("sqlsrv:server = $host; Database = $db", $user, $pass);
@@ -44,14 +45,16 @@
             $email = $_POST['email'];
             $job = $_POST['job'];
             $date = date("Y-m-d");
+			$count = $count+1;
             // Insert data
-            $sql_insert = "INSERT INTO Registration (name, email, job, date) 
-                        VALUES (?,?,?,?)";
+            $sql_insert = "INSERT INTO Registration (name, email, job, date, id) 
+                        VALUES (?,?,?,?,?)";
             $stmt = $conn->prepare($sql_insert);
             $stmt->bindValue(1, $name);
             $stmt->bindValue(2, $email);
             $stmt->bindValue(3, $job);
             $stmt->bindValue(4, $date);
+            $stmt->bindValue(5, $count);
             $stmt->execute();
         } catch(Exception $e) {
             echo "Failed: " . $e;
