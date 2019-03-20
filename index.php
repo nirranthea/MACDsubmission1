@@ -30,8 +30,7 @@
     $user = "nirranthea";
     $pass = "Purnama101";
     $db = "nirrantheawebappsubmission1";
-	$count = 0;
-
+	
     try {
         $conn = new PDO("sqlsrv:server = $host; Database = $db", $user, $pass);
         $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
@@ -41,12 +40,17 @@
 
     if (isset($_POST['submit'])) {
         try {
-            $name = $_POST['name'];
+			//ID is count + 1
+			$sql_select = "SELECT * FROM Registration";
+            $stmt = $conn->query($sql_select);
+            $registrants = $stmt->fetchAll(); 
+			$count = count($registrants)+1;
+            
+			$name = $_POST['name'];
             $email = $_POST['email'];
             $job = $_POST['job'];
             $date = date("Y-m-d");
-			$count = $count+1;
-            // Insert data
+			// Insert data
             $sql_insert = "INSERT INTO Registration (name, email, job, date, id) 
                         VALUES (?,?,?,?,?)";
             $stmt = $conn->prepare($sql_insert);
