@@ -29,7 +29,7 @@
     $host = "nirrantheawebappserver.database.windows.net";
     $user = "nirranthea";
     $pass = "Purnama101";
-    $db = "dbo.Registration";
+    $db = "Registration";
 
     try {
         $conn = new PDO("sqlsrv:server = $host; Database = $db", $user, $pass);
