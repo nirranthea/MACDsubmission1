@@ -49,6 +49,7 @@
 			$name = $_POST['name'];
 			if ($name == ""){
 				echo "Nama harus diisi";
+				continue;
 				}
 			$email = $_POST['email'];
             $job = $_POST['job'];
