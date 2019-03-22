@@ -47,8 +47,9 @@
 			$count = count($registrants)+1;
             
 			$name = $_POST['name'];
-			if $name == ""
-				echo "Nama harus diisi"
+			if ($name == ""){
+				echo "Nama harus diisi";
+				}
             $email = $_POST['email'];
             $job = $_POST['job'];
             $date = date("Y-m-d");
