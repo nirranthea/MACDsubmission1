@@ -28,7 +28,7 @@
  <?php
     $host = "nirrantheawebappserver.database.windows.net";
     $user = "nirranthea";
-    $pass = "Nirrant101;
+    $pass = "Nirrant101";
     $db = "nirrantheawebappsubmission1";
 	
     try {
@@ -50,7 +50,7 @@
 			if ($name == ""){
 				echo "Nama harus diisi";
 				}
-            $email = $_POST['email'];
+			$email = $_POST['email'];
             $job = $_POST['job'];
             $date = date("Y-m-d");
 			// Insert data
