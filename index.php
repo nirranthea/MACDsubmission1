@@ -47,8 +47,9 @@
 			$count = count($registrants)+1;
             
 			$name = $_POST['name'];
+			//Jika Nama ga diisi warning dan skip
 			if ($name == ""){
-				echo "Nama harus diisi";
+				echo "Perhatian! Nama harus diisi";
 				continue;
 				}
 			$email = $_POST['email'];
